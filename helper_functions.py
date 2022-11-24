@@ -32,6 +32,7 @@ def load_and_prep_image(filename, img_shape=224, scale=True):
 import itertools
 import matplotlib.pyplot as plt
 import numpy as np
+import sklearn
 from sklearn.metrics import confusion_matrix
 
 # Our function needs a different name to sklearn's plot_confusion_matrix

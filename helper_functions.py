@@ -255,7 +255,7 @@ def download_and_unzip(url: str):
   if Path(pure_name).is_dir():
     print(f"{pure_name} already exist, skipping download...")
   else:
-    !wget $url
+    os.system('wget %s'%url)
 
     # Unzip our data
     unzip_data("{name}".format(name=name)) 

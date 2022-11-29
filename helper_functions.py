@@ -251,7 +251,7 @@ def download_and_unzip(url: str):
   pure_name = name[:name.rindex(".")]
 
   if Path(pure_name).is_dir():
-    print(f"{pure_name} already exist, skipping donwload...")
+    print(f"{pure_name} already exist, skipping download...")
   else:
     !wget $url
 

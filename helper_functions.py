@@ -246,6 +246,8 @@ def unzip_data(filename):
   zip_ref.extractall()
   zip_ref.close()
 
+from pathlib import Path
+
 def download_and_unzip(url: str):
   name = url[url.rindex("/")+1:]
   pure_name = name[:name.rindex(".")]

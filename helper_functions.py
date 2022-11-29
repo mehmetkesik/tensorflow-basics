@@ -246,19 +246,19 @@ def unzip_data(filename):
   zip_ref.extractall()
   zip_ref.close()
 
-from pathlib import Path
-
-def download_and_unzip(url: str):
-  name = url[url.rindex("/")+1:]
-  pure_name = name[:name.rindex(".")]
-
-  if Path(pure_name).is_dir():
-    print(f"{pure_name} already exist, skipping download...")
-  else:
-    os.system('wget %s'%url)
-
-    # Unzip our data
-    unzip_data("{name}".format(name=name)) 
+#from pathlib import Path
+#
+#def download_and_unzip(url: str):
+#  name = url[url.rindex("/")+1:]
+#  pure_name = name[:name.rindex(".")]
+#
+#  if Path(pure_name).is_dir():
+#    print(f"{pure_name} already exist, skipping download...")
+#  else:
+#    os.system('wget %s'%url)
+#
+#    # Unzip our data
+#    unzip_data("{name}".format(name=name)) 
   
 # Walk through an image classification directory and find out how many files (images)
 # are in each subdirectory.

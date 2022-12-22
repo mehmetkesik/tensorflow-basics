@@ -329,6 +329,8 @@ def view_random_image(target_dir, target_class):
 
   return img
 
+from matplotlib.patches import Polygon, Rectangle
+
 def plot_image_with_polygons(img, true_points, pred_points, label="", scale_factor=1):
   plt.imshow(img)
   plt.title(label)

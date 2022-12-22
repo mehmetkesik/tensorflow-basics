@@ -328,3 +328,49 @@ def view_random_image(target_dir, target_class):
   print(f"Image shape: {img.shape}") # Show the shape of the image
 
   return img
+
+def plot_image_with_polygons(img, true_points, pred_points, label="", scale_factor=1):
+  plt.imshow(img)
+  plt.title(label)
+  plt.axis("off")
+
+  # True points
+  c_up_label = []
+  for i in range(0, len(true_points), 2):
+      c_up_label.append((true_points[i] * scale_factor, true_points[i + 1] * scale_factor))
+
+  # Pred points
+  c_up_label_pred = []
+  for i in range(0, len(pred_points), 2):
+      c_up_label_pred.append((pred_points[i] * scale_factor, pred_points[i + 1] * scale_factor))
+
+  plt.gca().add_patch(Polygon(xy=c_up_label, fill=False, color='red', linewidth=1))
+  plt.gca().add_patch(Polygon(xy=c_up_label_pred, fill=False, color="yellow", linewidth=1))
+  plt.show()
+
+
+def plot_image_with_rectangles(img, true_points, pred_points, label="", scale_factor=1):
+  plt.imshow(img)
+  plt.title(label)
+  plt.axis("off")
+
+  # True points
+  c_up_label = []
+  for k in range(0, len(true_points), 2):
+      c_up_label.append((true_points[k] * scale_factor, true_points[k + 1] * scale_factor))
+
+  # Pred points
+  c_up_label_pred = []
+  for k in range(0, len(pred_points), 2):
+      c_up_label_pred.append((pred_points[k] * scale_factor, pred_points[k + 1] * scale_factor))
+
+  width = c_up_label[1][0] - c_up_label[0][0]
+  height = c_up_label[1][1] - c_up_label[0][1]
+  plt.gca().add_patch(Rectangle(xy=c_up_label[0], width=width, height=height, color="red", linewidth=1, fill=False))
+
+  width = c_up_label_pred[1][0] - c_up_label_pred[0][0]
+  height = c_up_label_pred[1][1] - c_up_label_pred[0][1]
+  plt.gca().add_patch(Rectangle(xy=c_up_label_pred[0], width=width, height=height, color="yellow", linewidth=1, fill=False))
+
+  plt.show()
+
